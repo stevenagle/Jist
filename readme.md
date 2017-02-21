@@ -37,8 +37,10 @@ and then moved on to the MVC portion and spent the majority of the project time 
 </ul>
 
 ## Obstacles/Challenges
-We each had opportunities to practice working with Angular in ways that we hadn't used before. We utilized some of the plugins for Angular
-to build the chart on the dashboard and work with the accordion functions.
+We each had opportunities to practice working with Angular in ways that we hadn't used before. We utilized some of the plugins for Angular to build the chart on the dashboard and work with the accordion functions.
+
+## Security Vulnerabilities
+There is a known issue regarding vulnerability for a user's joblist to be viewed by manipulating the userid parameter within a GET request.  I am currently investigating how to fix this issue.
 
 ## Future Goals
 
