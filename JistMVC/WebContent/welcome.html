@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html ng-app="ngJist">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<title>Jist</title>
+
+<!--  JS plugins  -->
+<script src="js/angular.min.js"></script>
+<script src="js/angular-route.min.js"></script>
+<script src="js/Chart.min.js"></script>
+<script src="js/angular-chart.min.js"></script>
+<script src="app_client/ngApp.js"></script>
+<script src="js/ui-bootstrap-tpls-2.2.0.min.js"></script>
+
+<!--  Bootstrap  -->
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
+<!-- Custom CSS -->
+<link href="css/styles.css" rel="stylesheet">
+
+
+<!--  Controllers  -->
+<script src="app_client/controllers/landingController.js"></script>
+<script src="app_client/controllers/homeController.js"></script>
+<script src="app_client/controllers/loginController.js"></script>
+<script src="app_client/controllers/jobController.js"></script>
+<script src="app_client/controllers/detailController.js"></script>
+<script src="app_client/controllers/registrationController.js"></script>
+<script src="app_client/controllers/doughnutCtrl.js"></script>
+<script src="app_client/controllers/addJobController.js"></script>
+<script src="app_client/controllers/accordionController.js"></script>
+<script src="app_client/controllers/infoController.js"></script>
+
+<!--  Filters  -->
+<script src="app_client/filters/inactiveFilter.js"></script>
+<script src="app_client/filters/ninetyDaysFilter.js"></script>
+
+<!--  Directives  -->
+<script src="app_client/directives/jobRow/jobRow.js"></script>
+
+<!--  Services  -->
+<script src="app_client/services/jobService.js"></script>
+<script src="app_client/services/authenticationService.js"></script>
+<script src="app_client/services/registrationService.js"></script>
+ 
+
+</head>
+<body>
+	<div ng-view></div>
+
+</body>
+</html>

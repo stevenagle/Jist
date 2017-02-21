@@ -1,0 +1,213 @@
+<link href="css/home-page.css" rel="stylesheet">
+
+<script type="text/ng-template" id="group-template.html">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title" style="color:#fa39c3">
+          <a href tabindex="0" class="accordion-toggle" ng-click="toggleOpen()" uib-accordion-transclude="heading">
+            <span uib-accordion-header ng-class="{'text-muted': isDisabled}">
+              {{heading}}
+            </span>
+          </a>
+        </h4>
+      </div>
+      <div class="panel-collapse collapse" uib-collapse="!isOpen">
+        <div class="panel-body" style="text-align: right" ng-transclude></div>
+      </div>
+    </div>
+  </script>
+
+<div style="background-image: url('css/img/bg1.jpg')" class="main">
+<div class="layover"></div>
+
+<header ng-include="'partials/nav.html'"></header>
+
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <!-- Portfolio Item Heading -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Job Dashboard
+                    <small>{{loadUser().firstname}} {{loadUser().lastname}}, {{loadUser().location}} </small>
+                </h1>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <!-- Portfolio Item Row -->
+        <div class="row">
+
+            <div class="col-md-9">
+                 <div ng-controller="DoughnutCtrl">
+
+          <canvas id="doughnut" class="chart chart-doughnut"
+  			chart-data="data" chart-labels="labels" chart-options="options">
+		</canvas> 
+		
+        </div>
+            </div>
+
+            <div class="col-md-3">
+                <h3>Using Your Dashboard:</h3>
+                <p><font size="4px">In your Dashboard, you have an array of features at your fingertips.
+                You have a graphical display that tells you the total number
+                of jobs you have applied to and the current state of each. </font></p>
+                
+                <p>From here, you can add new jobs you have applied to and view a list of
+                all your current jobs in a detailed view.</p>
+                
+			<hr>
+
+		<button id="addJob" class="btn central-buttons" ng-click="addJobRedirect()">Add Job</button>
+		<a href="#/jobs"><button id="viewJobs" class="btn central-buttons">View Jobs</button></a>
+            </div>
+
+        </div>
+        <!-- /.row -->
+
+        <!-- Related Projects Row -->
+        <div class="row">
+
+            <div class="col-lg-12">
+                <h3 class="page-header"><font color="white"> Alerts: <span ng-class="jobCounter()">{{max()}}</span></font></h3>
+                
+   <!-- ALERT ACCORDION -->   
+             
+  <div ng-controller="accordionController">       
+  	<uib-accordion close-others="oneAtATime">              
+   	 	<div uib-accordion-group class="panel-default panel-success" heading="Click here to see jobs awaiting reply for more than 7 days">
+    		<div class="home-accordion-panels" ng-repeat="alert in inactiveNotifications">
+    			<b>Company: </b> {{alert.companyName}} 
+    			<hr>
+    		</div>
+    	</div>
+    	<div uib-accordion-group class="panel-default panel-danger" heading="Click here to see your applications that may be expired (90 days)">
+    		<div class="home-accordion-panels row" ng-repeat="alert in ninetyDaysNotifications">
+    			<div class="col-sm-11">
+    			<b>Company: </b>{{alert.companyName}} 
+    			</div>
+    		<div class="col-sm-1">
+			<button ng-click="delete(alert)" class="btn btn-danger btn-xs">
+				Delete <i class="fa fa-trash" aria-hidden="true"></i>
+			</button>
+		</div>
+    		</div>
+    	</div>
+  	</uib-accordion>
+  </div>
+             
+    <!-- <div class="panel-group" id="accordion">     
+    	
+    	<div class="panel panel-default">
+    		<div class="panel-heading">
+      			<h4 class="panel-title">
+        			<a data-toggle="collapse" data-parent="#accordion" target="_self" href="#collapse1">
+        			Awaiting Reply For 7 Days or More:</a>
+      			</h4>
+    		</div>
+    		<div id="collapse1" class="panel-collapse collapse in">
+      			<div class="panel-body" ng-repeat="job in jobs | inactiveFilter">
+      				{{job.companyName}}
+      				{{job.jobTitle}}
+      			</div>
+    		</div>
+  		</div>
+  		
+    	<div class="panel panel-default">
+    		<div class="panel-heading">
+      			<h4 class="panel-title">
+        			<a data-toggle="collapse" data-parent="#accordion" data-target="#collapse2">
+        			It's Been 90 Days Since You Applied:</a>
+      			</h4>
+    		</div>
+    		<div id="collapse1" class="panel-collapse collapse in">
+      			<div class="panel-body" ng-repeat="job in jobs | ninetyDaysFilter">
+      				{{job.companyName}}
+      				{{job.jobTitle}}
+      			</div>
+    		</div>
+  		</div>
+   </div> -->
+    
+           
+                
+    <!-- Awaiting Reply Inactive Filter: -->
+    <!-- <ul>
+    <li ng-repeat="job in jobs | inactiveFilter">{{job.companyName}}</li>
+    </ul> -->
+    
+    <!-- Jobs Older Than 90 Days Filter:
+    <ul>
+    <li ng-repeat="job in jobs | ninetyDaysFilter">{{job.companyName}}</li>
+    </ul> -->
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <hr>
+
+
+    </div>
+    </div>
+    <!-- /.container -->
+
+
+<!-- 
+
+<div style="background-image: url('css/img/home-bg.jpg')" class="main">
+<div class="overlay"></div>
+<div class="container">
+	
+	<h2 class="sub-text">Your Personal Job Search Tracker Dashboard<h2>
+	
+	<h5>{{alertUser().appDate}}</h5>
+	
+    
+    
+        <h2>{{loadUser().firstname}} {{loadUser().lastname}}<small> {{loadUser().location}}</small></h2>
+        <p>Alerts:</p>
+
+		 List Alerts
+		<ul>
+			<li ng-repeat="job in jobs | inactiveFilter">Contact {{job.companyName}}!</li>
+		</ul>
+
+		<div class="central-buttons">
+		<button width="50%" class="btn btn-default" ng-click="addJobRedirect()">Add Job</button>
+		<a href="#/jobs"><button  width="50%" class="btn btn-primary">View Jobs</button></a>
+		</div>
+        
+        
+
+        <div ng-controller="DoughnutCtrl">
+
+          <canvas id="doughnut" class="chart chart-doughnut"
+  			chart-data="data" chart-labels="labels" chart-options="options">
+		</canvas> 
+		
+        </div>
+    </div>
+    </div>
+    
+    Awaiting Reply Inactive Filter:
+    <ul>
+    <li ng-repeat="job in jobs | inactiveFilter">{{job.companyName}}</li>
+    </ul>
+    
+    Jobs Older Than 90 Days Filter:
+    <ul>
+    <li ng-repeat="job in jobs | ninetyDaysFilter">{{job.companyName}}</li>
+    </ul>
+    
+    <!-- <tr
+
+    
+    <tr ng-repeat="todo in todos | orderBy: 'task' | completedFilter: showComplete"
+				todo-directive data="todo" remove="remove" update="edit"
+				completed="{{todo.completed}}">
+    
+</div>
+</div>
+ -->

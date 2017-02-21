@@ -1,0 +1,20 @@
+<div style="background-image: url('css/img/bg1.jpg')" class="main">
+<div class="overlay"></div>
+<div class="container">
+		<a href="#/"><h1 class="main-text">Jist</h1></a>
+          
+      <form ng-action="loginUser(user)" class="form-signin col-md-4 col-md-offset-4 vert-center" novalidate>
+        <label for="inputUsername" class="sr-only">Username</label>
+        <input ng-model="user.username" type="text" id="inputUsername" class="form-control loginfield" placeholder="Username" required autofocus>
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input ng-model="user.password" type="password" id="inputPassword" class="form-control loginfield" placeholder="Password" required>
+		<br>
+		<div ng-show="displayError">
+      	<p class="loginError">You have entered an incorrect username/password.  Please try again.</p>
+      </div>
+		<br><br>
+        <button ng-click="loginUser(user)" ng-touch="(loginUser(user)" width="50%" class="btn btn-lg btn-danger btn-block" type="submit">Sign in</button>
+      </form>
+      
+</div>
+</div>
