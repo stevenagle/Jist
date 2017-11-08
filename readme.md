@@ -8,8 +8,7 @@ Steve Nagle (http://www.github.com/stevenagle)<br>
 Steven Zuber (http://www.github.com/stevenzuber)
 
 ## Overview/Introduction:
-At the end of week 15 of Skill Distillery we built a full stack web application in a group. The goals were to create a persistent back-end
-database connected to a dynamic front end, using Java technologies to connect them.
+At the end of week 15 of Skill Distillery we built a full stack web application in a group. The goals were to create a persistent back-end database connected to a dynamic front end, using Java technologies to connect them.
 We wanted to make an application that wasn't just functional, but useful. Our app gives users a streamlined way to
 keep track of all of their active job applications. Users can add jobs to an index that stores all of the relevant information
 about that job, including contact information for the party the user is interacting with, url of the original posting, and
@@ -40,7 +39,7 @@ and then moved on to the MVC portion and spent the majority of the project time 
 We each had opportunities to practice working with Angular in ways that we hadn't used before. We utilized some of the plugins for Angular to build the chart on the dashboard and work with the accordion functions.
 
 ## Security Vulnerabilities
-There is a known issue regarding vulnerability for a user's joblist to be viewed by manipulating the userid parameter within a GET request.  I am currently investigating how to fix this issue.
+There is a known issue regarding vulnerability for a user's joblist to be viewed by manipulating the userid parameter within a GET request.  As this is a dead project and for example only, I am not concerned.
 
 ## Future Goals
 
@@ -57,7 +56,7 @@ displays the current status of your applications.
 
 
 
-### Access on AWS
+### Access the app
 
 Patrick Gaston: http://patgaston.com:8080/Jist/
 
